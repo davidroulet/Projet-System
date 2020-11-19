@@ -1,5 +1,6 @@
 # Projet Système
 
+
 ## Description
 Le projet sera de mettre en place un serveur qui virtualisera des machines
 qui pourront être prise à distance. Un ordinateur, pour faire de la burreautique, n'est jamais
@@ -14,3 +15,7 @@ plusieurs postes sera plus efficasse et moin coûteu
 - lier les vm/script avec les abonnements
 - avoir accès au VM via RDP
 - avoir accès au VM depuis l'extérieur
+
+### logiciels
+
+vSphere Hypervisor
