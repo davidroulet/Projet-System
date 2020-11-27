@@ -1,8 +1,18 @@
 <?php
-/**
- * [Title]
- * User: [NAME]
- * Date: [DATE]
- */
-//return json_decode(file_get_contents("model/[File.json]"),true);
-//file_put_contents('model/[Files.json]', json_encode($var));
+
+function getuser()
+{
+    return selectMany("SELECT * FROM users", []);
+}
+function getproduct()
+{
+    return selectMany("SELECT * FROM products", []);
+}
+function getsubscribe()
+{
+    return selectMany("SELECT * FROM abonment", []);
+}
+function getuserbyname($firstname,$lastname){
+    return selectOne("SELECT * FROM users where firstname= :firstname and lastname = :lastname;",['lastname' => $lastname,'firstname' => $firstname]);
+
+}
