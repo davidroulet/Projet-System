@@ -27,3 +27,14 @@ function home()
 
     require_once 'view/home.php';
 }
+function info(){
+    require_once 'view/info.php';
+}
+function sub(){
+    require_once 'view/sub.php';
+}
+function profile(){
+
+    $data = getuserbyname($_SESSION["firstname"],$_SESSION["lastname"]);
+    require_once 'view/profile.php';
+}
