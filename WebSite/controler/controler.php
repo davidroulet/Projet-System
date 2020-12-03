@@ -32,7 +32,7 @@ function info(){
     require_once 'view/info.php';
 }
 function sub(){
-    $data=getproduct();
+    $datas=getproduct();
     require_once 'view/sub.php';
 }
 function profile(){
