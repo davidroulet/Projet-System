@@ -20,7 +20,7 @@
         <a class="col-4 bigfont btn btn-primary btn-large  font-weight" href="?action=info">Info</a>
         <a class="col-4 bigfont btn btn-primary btn-large " href="?action=sub">Abonment</a>
         <a class="col-4 bigfont btn btn-primary btn-large " href="?action=profile">Profile</a>
-        <a class="col-4 bigfont btn btn-primary btn-large " href="?action=supp">Suppre</a>
+        <a class="col-4 bigfont btn btn-primary btn-large " href="?action=supp">Se Deconnecter</a>
     </div>
 
 

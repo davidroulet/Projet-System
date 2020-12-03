@@ -20,6 +20,9 @@ if (isset($_POST['nom']) && isset($_POST['password'])) {
     $prenom = $_POST["prenom"];
 
 }
+if (isset($_GET['prod'])) {
+    $prod = $_GET['prod'];
+}
 
 switch ($action) {
     case 'home':
@@ -42,12 +45,16 @@ switch ($action) {
         info();
         break;
 
+    case "takesub":
+        takesub($prod);
+        break;
     case "profile":
         profile();
         break;
     case "supp":
         session_destroy();
-        require_once "view/home.php";
+        session_start();
+        home();
         break;
     default:
         require_once "view/home.php";

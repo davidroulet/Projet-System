@@ -25,7 +25,6 @@ function login(){
 }
 function home()
 {
-
     require_once 'view/home.php';
 }
 function info(){
@@ -38,4 +37,8 @@ function sub(){
 function profile(){
 
     require_once 'view/profile.php';
+}
+function takesub($prod){
+
+    require_once 'view/info.php';
 }
