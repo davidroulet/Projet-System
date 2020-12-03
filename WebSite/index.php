@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * [Title]
  * User: [NAME]
@@ -17,6 +18,7 @@ if (isset($_POST['nom']) && isset($_POST['password'])) {
     $nom = $_POST['nom'];
     $password = $_POST['password'];
     $prenom = $_POST["prenom"];
+
 }
 
 switch ($action) {
@@ -25,12 +27,12 @@ switch ($action) {
         break;
 
     case "trylogin":
-        trylogin($prenom,$nom, $password);
+        trylogin($prenom, $nom, $password);
         break;
 
     case "login":
         login();
-            break;
+        break;
 
     case "sub":
         sub();
@@ -42,6 +44,10 @@ switch ($action) {
 
     case "profile":
         profile();
+        break;
+    case "supp":
+        session_destroy();
+        require_once "view/home.php";
         break;
     default:
         require_once "view/home.php";

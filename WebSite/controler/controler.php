@@ -12,6 +12,7 @@ function trylogin($prenom,$nom, $password){
 if($data["password"]==$password){
     $_SESSION["lastname"]=$nom;
     $_SESSION["firstname"]=$prenom;
+    $_SESSION["password"]=$password;
     require_once 'view/login.php';
 
 }else{
@@ -31,10 +32,10 @@ function info(){
     require_once 'view/info.php';
 }
 function sub(){
+    $data=getproduct();
     require_once 'view/sub.php';
 }
 function profile(){
 
-    $data = getuserbyname($_SESSION["firstname"],$_SESSION["lastname"]);
     require_once 'view/profile.php';
 }

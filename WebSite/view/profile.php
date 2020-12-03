@@ -7,12 +7,17 @@
  * Time: 14:52
  */
 ob_start();
+
 ?>
 
     profile
-    Ton prenom = <?php echo "$data[firstname]" ?>
-    Ton Nom = <?php echo "$data[lastname]" ?>
-    Ton Mot de passe = <?php echo "$data[password]" ?>
+
+    Ton Nom = <?php echo  "$_SESSION[lastname]" ?>
+<br>
+    Ton Prenom = <?php echo  "$_SESSION[firstname]" ?>
+<br>
+    Ton Mot de passe = <?php echo  "$_SESSION[password]" ?>
+
 <?php
 
 $content = ob_get_clean();
