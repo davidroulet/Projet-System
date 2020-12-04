@@ -44,11 +44,13 @@ function profile(){
 function remsub($subid){
 
     modelremovesub($subid);
-    header('Location: http://localhost:8080/?action=sub');
+    $url = 'http://'.$_SERVER['HTTP_HOST']."?action=sub";
+    header("Location: $url");
 }
-function takesub($prod){
+function takesub($prod,$VMName){
 
-    addsub($_SESSION["id"],$prod);
-    header('Location: http://localhost:8080/?action=sub');
+    addsub($_SESSION["id"],$prod,$VMName);
+    $url = 'http://'.$_SERVER['HTTP_HOST']."?action=sub";
+    header("Location: $url");
 
 }

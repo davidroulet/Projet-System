@@ -32,9 +32,9 @@ function modelremovesub($subid)
 }
 
 
-function addsub($userid,$prodid)
+function addsub($userid,$prodid,$VMName)
 {
-    return insert("INSERT INTO abonment(Users_id,Products_id,datestart) VALUES (:userid,:pordid,now())", ['userid'=>$userid,'pordid'=>$prodid]);
+    return insert("INSERT INTO abonment(Users_id,Products_id,datestart,Name) VALUES (:userid,:pordid,now(),:VMName)", ['userid'=>$userid,'pordid'=>$prodid,'VMName'=>$VMName]);
 
 }
 // return execute("DELETE FROM todosheet WHERE id=:id", ["id" => $id]);

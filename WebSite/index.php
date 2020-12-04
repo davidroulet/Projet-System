@@ -27,7 +27,9 @@ if (isset($_GET['prod'])) {
 if (isset($_GET['subid'])) {
     $subid = $_GET['subid'];
 }
-
+if (isset($_GET['VMName'])) {
+    $VMName = $_GET['VMName'];
+}
 switch ($action) {
     case 'home':
         home();
@@ -54,7 +56,7 @@ switch ($action) {
         break;
 
     case "takesub":
-        takesub($prod);
+        takesub($prod,$VMName);
         break;
     case "profile":
         profile();
