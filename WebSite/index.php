@@ -24,6 +24,10 @@ if (isset($_GET['prod'])) {
     $prod = $_GET['prod'];
 }
 
+if (isset($_GET['subid'])) {
+    $subid = $_GET['subid'];
+}
+
 switch ($action) {
     case 'home':
         home();
@@ -39,6 +43,10 @@ switch ($action) {
 
     case "sub":
         sub();
+        break;
+
+    case "remsub":
+        remsub($subid);
         break;
 
     case "info":

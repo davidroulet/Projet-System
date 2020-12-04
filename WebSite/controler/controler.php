@@ -13,6 +13,8 @@ if($data["password"]==$password){
     $_SESSION["lastname"]=$nom;
     $_SESSION["firstname"]=$prenom;
     $_SESSION["password"]=$password;
+    $data=getuserbyname($prenom,$nom);
+    $_SESSION["id"]=$data["id"];
     require_once 'view/login.php';
 
 }else{
@@ -32,13 +34,21 @@ function info(){
 }
 function sub(){
     $datas=getproduct();
+    $alreadysub = getsubscribbyuser($_SESSION["id"]);
     require_once 'view/sub.php';
 }
 function profile(){
 
     require_once 'view/profile.php';
 }
+function remsub($subid){
+
+    modelremovesub($subid);
+    header('Location: http://localhost:8080/?action=sub');
+}
 function takesub($prod){
 
-    require_once 'view/info.php';
+    addsub($_SESSION["id"],$prod);
+    header('Location: http://localhost:8080/?action=sub');
+
 }
