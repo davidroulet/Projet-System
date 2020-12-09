@@ -20,7 +20,16 @@ if (isset($_POST['nom']) && isset($_POST['password'])) {
     $prenom = $_POST["prenom"];
 
 }
+if (isset($_GET['prod'])) {
+    $prod = $_GET['prod'];
+}
 
+if (isset($_GET['subid'])) {
+    $subid = $_GET['subid'];
+}
+if (isset($_GET['VMName'])) {
+    $VMName = $_GET['VMName'];
+}
 switch ($action) {
     case 'home':
         home();
@@ -38,16 +47,24 @@ switch ($action) {
         sub();
         break;
 
+    case "remsub":
+        remsub($subid);
+        break;
+
     case "info":
         info();
         break;
 
+    case "takesub":
+        takesub($prod,$VMName);
+        break;
     case "profile":
         profile();
         break;
     case "supp":
         session_destroy();
-        require_once "view/home.php";
+        session_start();
+        home();
         break;
     default:
         require_once "view/home.php";
