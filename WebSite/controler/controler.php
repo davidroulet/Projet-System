@@ -5,15 +5,12 @@
  * Date: [DATE]
  */
 require_once 'model/model.php';
-function trylogin($prenom,$nom, $password){
-
-
-    $data = getuserbyname($prenom,$nom);
+function trylogin($email, $password){
+    $data = getuserbyemail($email);
 if($data["password"]==$password){
-    $_SESSION["lastname"]=$nom;
-    $_SESSION["firstname"]=$prenom;
+    $_SESSION["email"]=$email;
     $_SESSION["password"]=$password;
-    $data=getuserbyname($prenom,$nom);
+    $data=getuserbyemail($email);
     $_SESSION["id"]=$data["id"];
     require_once 'view/login.php';
 
@@ -21,6 +18,15 @@ if($data["password"]==$password){
     require_once 'view/home.php';
 }
 
+}
+function newuser($email, $password){
+    adduser($email,$password);
+    trylogin($email, $password);
+}
+function adminP(){
+    $prods=getproduct();
+    $users=getuser();
+    require_once 'view/AdminP.php';
 }
 function login(){
     require_once 'view/login.php';
@@ -41,16 +47,36 @@ function profile(){
 
     require_once 'view/profile.php';
 }
+
 function remsub($subid){
 
     modelremovesub($subid);
     $url = 'http://'.$_SERVER['HTTP_HOST']."?action=sub";
     header("Location: $url");
 }
+function remsubA($subid){
+
+    modelremovesub($subid);
+    $url = 'http://'.$_SERVER['HTTP_HOST']."?action=adminP";
+    header("Location: $url");
+}
+
 function takesub($prod,$VMName){
 
     addsub($_SESSION["id"],$prod,$VMName);
     $url = 'http://'.$_SERVER['HTTP_HOST']."?action=sub";
     header("Location: $url");
 
+}
+
+
+function showsubinfo($showsubinfoid){
+$numbersub =getnumberorsubbyprod($showsubinfoid);
+$data=getproductbyid($showsubinfoid);
+
+    require_once 'view/showsubinfo.php';
+}
+function listusbuser($listusbuser){
+   $datas = getsubscribbyuser($listusbuser);
+    require_once 'view/listusbuser.php';
 }

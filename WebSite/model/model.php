@@ -12,8 +12,8 @@ function getsubscribe()
 {
     return selectMany("SELECT * FROM abonment", []);
 }
-function getuserbyname($firstname,$lastname){
-    return selectOne("SELECT * FROM users where firstname= :firstname and lastname = :lastname;",['lastname' => $lastname,'firstname' => $firstname]);
+function getuserbyemail($email){
+    return selectOne("SELECT * FROM users where email= :email;",['email' => $email]);
 
 }
 function getsubscribbyuser($userid)
@@ -25,10 +25,22 @@ function getproductbyid($prodid)
     return selectOne("SELECT * FROM products where id=:id;", ['id'=>$prodid]);
 }
 
-
+function getnumberorsubbyprod($prodid)
+{
+    return selectOne("SELECT COUNT(*) FROM abonment where Products_id =:id;", ['id'=>$prodid]);
+}
 function modelremovesub($subid)
 {
     return execute("DELETE FROM greenpurple.abonment where id=:id;", ['id'=>$subid]);
+}
+//function addprod($packname,$os,$ram,$os,$pross)
+//{
+//    return execute("INSERT INTO products() VALUES (:packname,:os,:ram,:pross);", ['packname'=>$packname,'os'=>$os,'ram'=>$ram,'pross'=>$pross]);
+//}
+function adduser($email,$password){
+    return insert("INSERT INTO users(email,password) VALUES (:email,:password)", ['password'=>$password,'email'=>$email]);
+
+
 }
 
 

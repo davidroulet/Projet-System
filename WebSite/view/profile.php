@@ -12,9 +12,8 @@ ob_start();
 
     profile
 
-    Ton Nom = <?php echo  "$_SESSION[lastname]" ?>
 <br>
-    Ton Prenom = <?php echo  "$_SESSION[firstname]" ?>
+    Ton Email = <?php echo  "$_SESSION[email]" ?>
 <br>
     Ton Mot de passe = <?php echo  "$_SESSION[password]" ?>
 
