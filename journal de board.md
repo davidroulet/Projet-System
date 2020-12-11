@@ -19,3 +19,7 @@ Choix de l'hyperviseur à utiliser.
 Création du journal de board
 
 Installation de vmware exsi sur une vm pour tester l'environement
+
+## 11.12.20
+
+Serveur physique sera reçu lundi
