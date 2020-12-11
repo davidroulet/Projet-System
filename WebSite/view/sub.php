@@ -16,7 +16,8 @@ ob_start();
                 <div>
                     Nom : <?php echo $alsub["name"] ?> | pack : <?php echo $data["name"] ?> | os : <?php echo $data["os"] ?> | RAM
                     : <?php echo $data["Ram"] ?> | CPU : <?php echo $data["CPU"] ?>| date
-                    : <?php echo $alsub["datestart"] ?>
+                    : <?php echo $alsub["datestart"] ?>|
+                    Espace disk :  50go
 
                     <form>
                         <input type="hidden" name="action" value="remsub" >
@@ -33,7 +34,8 @@ ob_start();
             <?php foreach ($datas as $data) {
                 ?>
                 <div> Nom : <?php echo $data["name"] ?> | os : <?php echo $data["os"] ?> | RAM
-                    : <?php echo $data["Ram"] ?> | CPU : <?php echo $data["CPU"] ?>
+                    : <?php echo $data["Ram"] ?> | CPU : <?php echo $data["CPU"] ?>|
+                    Espace disk :  50go
 
 
                     <form>

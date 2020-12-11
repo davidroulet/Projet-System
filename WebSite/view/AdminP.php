@@ -26,8 +26,16 @@ Liste des Produits:
             <?php } ?>
         </div>
 
-    <br>
 
+    <form method="get">
+        <input type="text" name="nameprod" value="Name">
+        <input type="text" name="osprod" value="Os">
+        <input type="text" name="ramprod" value="Ram">
+        <input type="text" name="cpuprod" value="Cpu">
+        <input type="hidden" name="action" value="newprod" >
+        <button type="submit">Nouveaux produit</button>
+    </form>
+    <br>
     Liste des Clients:
     <div class="col-6">
         <?php foreach ($users as $data) {
@@ -37,9 +45,7 @@ Liste des Produits:
                     <input type="hidden" name="action" value="listusbuser" >
                     <input type="hidden" name="listusbuser" value="<?php echo $data["id"] ?>">
                     <button type="submit"> Consulter les abos</button>
-
                 </form>
-
             </div>
         <?php } ?>
     </div>

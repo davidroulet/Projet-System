@@ -18,6 +18,15 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
     $email = $_POST["email"];
 }
+
+if (isset( $_GET['nameprod'])) {
+    $nameprod =  $_GET['nameprod'];
+    $osprod =  $_GET["osprod"];
+    $ramprod =  $_GET['ramprod'];
+    $cpuprod =  $_GET["cpuprod"];
+
+}
+
 if (isset($_POST['emailnew']) && isset($_POST['passwordnew'])) {
     $passwordnew = $_POST['passwordnew'];
     $emailnew = $_POST["emailnew"];
@@ -39,11 +48,14 @@ if (isset($_GET['showsubinfoid'])) {
 if (isset($_GET['VMName'])) {
     $VMName = $_GET['VMName'];
 }
+
 switch ($action) {
     case 'home':
         home();
         break;
-
+    case 'newprod':
+        newprod($nameprod,$ramprod,$osprod,$cpuprod);
+        break;
     case "trylogin":
         trylogin($email, $password);
         break;
@@ -65,21 +77,21 @@ switch ($action) {
         remsub($subid);
         break;
 
-            case "showsubinfo":
-                showsubinfo($showsubinfoid);
-                break;
-            case "remsubA":
-                remsubA($subid);
-                break;
+    case "showsubinfo":
+        showsubinfo($showsubinfoid);
+        break;
+    case "remsubA":
+        remsubA($subid);
+        break;
     case "info":
         info();
         break;
 
-           case "listusbuser":
-               listusbuser($listusbuser);
-               break;
+    case "listusbuser":
+        listusbuser($listusbuser);
+        break;
     case "takesub":
-        takesub($prod,$VMName);
+        takesub($prod, $VMName);
         break;
     case "profile":
         profile();
@@ -90,9 +102,9 @@ switch ($action) {
         home();
         break;
     default:
-        if(isset($_SESSION["id"])){
+        if (isset($_SESSION["id"])) {
             login();
-        }else{
+        } else {
             require_once "view/home.php";
         }
 

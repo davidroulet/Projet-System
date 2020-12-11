@@ -33,14 +33,20 @@ function modelremovesub($subid)
 {
     return execute("DELETE FROM greenpurple.abonment where id=:id;", ['id'=>$subid]);
 }
-//function addprod($packname,$os,$ram,$os,$pross)
-//{
-//    return execute("INSERT INTO products() VALUES (:packname,:os,:ram,:pross);", ['packname'=>$packname,'os'=>$os,'ram'=>$ram,'pross'=>$pross]);
-//}
+
+
+function AddProducte($nameprod,$ramprod,$osprod,$cpuprod)
+{
+
+    return insert("INSERT INTO products(name,os,Ram,CPU) VALUES (:packname,:os,:ram,:pross)", ['packname'=>$nameprod,'os'=>$osprod,'ram'=>$ramprod,'pross'=>$cpuprod]);
+}
+
+
+
+
+
 function adduser($email,$password){
     return insert("INSERT INTO users(email,password) VALUES (:email,:password)", ['password'=>$password,'email'=>$email]);
-
-
 }
 
 

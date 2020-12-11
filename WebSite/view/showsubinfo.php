@@ -13,7 +13,8 @@ ob_start();
 
     <div> Nom : <?php echo $data["name"] ?> | os : <?php echo $data["os"] ?> | RAM
         : <?php echo $data["Ram"] ?> | CPU : <?php echo $data["CPU"] ?> |
-        number :  <?php echo $numbersub["COUNT(*)"] ?>
+        number :  <?php echo $numbersub["COUNT(*)"] ?>|
+        Espace disk :  50go
 
 
     </div>
