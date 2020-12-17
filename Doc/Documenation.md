@@ -1,6 +1,7 @@
-#Locigiel
+# Locigiel
 
-##CMS
-https://green-purple.odoo.com/
+## Site Web Pour les abonnment
 
-##HyperViseur
+
+## HyperViseur
+https://10.229.42.213/ui/#/login

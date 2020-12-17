@@ -31,3 +31,7 @@ vim-cmd vmsvc/power.on %VMid%
 
 # Step 07: Command has been executed the virtual machine will be power-on. To verify you can use:
 vim-cmd vmsvc/power.getstate %VMid%
+
+Lien pour des commande
+https://kb.vmware.com/s/article/2012964
+https://www.altaro.com/vmware/top-20-esxcli-commands/
