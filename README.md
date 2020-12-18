@@ -3,9 +3,9 @@
 
 ## Description
 Le projet sera de mettre en place un serveur qui virtualisera des machines
-qui pourront être prise à distance. Un ordinateur, pour faire de la burreautique, n'est jamais
-utilisé à son maximum de capacitées. Donc si on utilise un serveur qui virtualise
-plusieurs postes sera plus efficasse et moin coûteu
+qui pourront être prise à distance. Un ordinateur, pour faire de la bureautique, n'est jamais
+utilisé à son maximum de capacités. Donc si on utilise un serveur qui virtualise
+plusieurs postes sera plus efficace et moins couteux
 
 ### Objectifs
 
@@ -21,9 +21,9 @@ plusieurs postes sera plus efficasse et moin coûteu
 vSphere Hypervisor
 
 # Use Cases
-## Acheter un abonnements
-En arrivant sur le site d'acceuil, le client peut choisir un package pour un abonnement à une VM et la louer
-suite a l'achat des identifient lui seront donné et une machines sera faite avec ses preferance
+## Acheter un abonnement
+En arrivant sur le site d'accueil, le client peut choisir un package pour un abonnement à une VM et la louer
+suite a l'achat des identifient lui seront donné et une machines sera faite avec ses préférence
 ## Se connecter
-Via un client RDP/VNC a une Machine virutelle
-L'utilisature arrivera sur le bureau de la machine virutelle dont il la souscrit
+Via un client RDP/VNC a une Machine virtuelle
+L'utilisateur arrivera sur le bureau de la machine virtuelle dont il la souscrit
