@@ -9,7 +9,7 @@
 <div class="container">
     <header>
         <div class="row banner">
-            <a href="index.php" class="col-18 text-center mt-5 text-decoration-none"><h1>GreenPurple</h1><i>V1.0</i></a>
+            <a href="index.php?action=info" class="col-18 text-center mt-5 text-decoration-none"><h1>GreenPurple</h1><i>V1.0</i></a>
 
         </div>
     </header>
