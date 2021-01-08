@@ -7,31 +7,16 @@ vim-cmd vmsvc/power.off VMID
 get le VMID
 vim-cmd vmsvc/getallvms
 
+get le status par le nom
+vim-cmd vmsvc/getallvms | grep "$vmname"
+
 avoir l'etat d'une vm
 vim-cmd vmsvc/power.getstate VMID
 
-Commande en vrac
-# Step 01: Connect with SSH (for example Putty).
+Pour changer le nom edité le fichier VMX
+sous displayName = "truc"
 
-# Step 02: Login as a user with root privileges
+execute a script
+ sh changename.sh
 
-# Step 03a: View ESXi host virtual machine inventory
-vim-cmd vmsvc/getallvms
-# Step 03b: View ESXi host virtual machine inventory with filter
-vim-cmd vmsvc/getallvms | grep %VMname%
 
-# Step 04: Write-down the VMid, in my case:
-183
-
-# Step 05: Verify the current power status
-vim-cmd vmsvc/power.getstate %VMid%
-
-# Step 06: Power-on virtual machine
-vim-cmd vmsvc/power.on %VMid%
-
-# Step 07: Command has been executed the virtual machine will be power-on. To verify you can use:
-vim-cmd vmsvc/power.getstate %VMid%
-
-Lien pour des commande
-https://kb.vmware.com/s/article/2012964
-https://www.altaro.com/vmware/top-20-esxcli-commands/

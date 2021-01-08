@@ -27,7 +27,7 @@ function newuser($email, $password)
     trylogin($email, $password);
 }
 
-function adminP()
+function adminP($SSH)
 {
     $prods = getproduct();
     $users = getuser();

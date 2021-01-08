@@ -7,9 +7,21 @@
  */
 
 ob_start();
+
 ?>
 
 Page d'adminisatation
+    <br>
+    <form method="get">
+        <input type="hidden" name="action" value="ssh" >
+        <button type="submit">Test SSH</button>
+    </form>
+<?php
+
+if(isset($SSH)){
+    echo $SSH;
+}
+?>
 <br>
 Liste des Produits:
    <div class="col-6">
@@ -25,6 +37,7 @@ Liste des Produits:
                 </form>
             <?php } ?>
         </div>
+
 
 
     <form method="get">

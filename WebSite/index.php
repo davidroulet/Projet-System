@@ -9,6 +9,10 @@ session_start();
 require "model/database.php";
 require "controler/controler.php";
 
+
+$connection = ssh2_connect('10.229.42.213', 22);
+ssh2_auth_password($connection, 'root', 'Pa$$w0rd');
+
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 } else {
@@ -54,7 +58,17 @@ switch ($action) {
         home();
         break;
     case 'newprod':
-        newprod($nameprod,$ramprod,$osprod,$cpuprod);
+    newprod($nameprod,$ramprod,$osprod,$cpuprod);
+    break;
+    case 'ssh':
+
+        $connection = ssh2_connect('10.229.42.213', 22);
+        if (ssh2_auth_password($connection, 'root', 'Pa$$w0rd')) {
+            $SSH = "ok";
+        } else {
+            $SSH = "pas ok";
+        }
+        adminP($SSH);
         break;
     case "trylogin":
         trylogin($email, $password);
@@ -67,7 +81,7 @@ switch ($action) {
         login();
         break;
     case "adminP":
-        adminP();
+        adminP($SSH);
         break;
     case "sub":
         sub();
