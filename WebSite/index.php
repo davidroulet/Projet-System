@@ -9,9 +9,14 @@ session_start();
 require "model/database.php";
 require "controler/controler.php";
 
-
 $connection = ssh2_connect('10.229.42.213', 22);
 ssh2_auth_password($connection, 'root', 'Pa$$w0rd');
+
+$stream = ssh2_exec($connection, 'vim-cmd vmsvc/getallvms');
+stream_set_blocking($stream, true);
+$stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+$output = stream_get_contents($stream_out);
+var_dump($output) ;
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
