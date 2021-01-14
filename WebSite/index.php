@@ -6,17 +6,10 @@ session_start();
  * Date: [DATE]
  */
 
+
 require "model/database.php";
 require "controler/controler.php";
 
-$connection = ssh2_connect('10.229.42.213', 22);
-ssh2_auth_password($connection, 'root', 'Pa$$w0rd');
-
-$stream = ssh2_exec($connection, 'vim-cmd vmsvc/getallvms');
-stream_set_blocking($stream, true);
-$stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-$output = stream_get_contents($stream_out);
-var_dump($output) ;
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -28,11 +21,11 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST["email"];
 }
 
-if (isset( $_GET['nameprod'])) {
-    $nameprod =  $_GET['nameprod'];
-    $osprod =  $_GET["osprod"];
-    $ramprod =  $_GET['ramprod'];
-    $cpuprod =  $_GET["cpuprod"];
+if (isset($_GET['nameprod'])) {
+    $nameprod = $_GET['nameprod'];
+    $osprod = $_GET["osprod"];
+    $ramprod = $_GET['ramprod'];
+    $cpuprod = $_GET["cpuprod"];
 
 }
 
@@ -44,6 +37,9 @@ if (isset($_GET['prod'])) {
     $prod = $_GET['prod'];
 }
 
+if (isset($_GET['sshco'])) {
+    $sshco = $_GET['sshco'];
+}
 if (isset($_GET['listusbuser'])) {
     $listusbuser = $_GET['listusbuser'];
 }
@@ -59,12 +55,29 @@ if (isset($_GET['VMName'])) {
 }
 
 switch ($action) {
+
     case 'home':
         home();
         break;
+
     case 'newprod':
-    newprod($nameprod,$ramprod,$osprod,$cpuprod);
-    break;
+        newprod($nameprod, $ramprod, $osprod, $cpuprod);
+        break;
+
+    case "sshco":
+
+        $connection = ssh2_connect('10.229.42.213', 22);
+        ssh2_auth_password($connection, 'root', 'Pa$$w0rd');
+
+        $stream = ssh2_exec($connection, 'sh /script/Ascript.sh');
+        stream_set_blocking($stream, true);
+        $stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+        $output = stream_get_contents($stream_out);
+        $sshco = $output;
+        adminP($SSH, $sshco);
+
+
+        break;
     case 'ssh':
 
         $connection = ssh2_connect('10.229.42.213', 22);
@@ -73,7 +86,7 @@ switch ($action) {
         } else {
             $SSH = "pas ok";
         }
-        adminP($SSH);
+        adminP($SSH, $sshco);
         break;
     case "trylogin":
         trylogin($email, $password);
@@ -86,7 +99,7 @@ switch ($action) {
         login();
         break;
     case "adminP":
-        adminP($SSH);
+        adminP($SSH, $sshco);
         break;
     case "sub":
         sub();

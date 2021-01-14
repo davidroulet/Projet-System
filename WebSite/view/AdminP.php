@@ -20,6 +20,16 @@ Page d'adminisatation
 
 if(isset($SSH)){
     echo $SSH;
+    }
+    ?>
+    <form method="get">
+        <input type="hidden" name="action" value="sshco" >
+        <button type="submit">Test Command</button>
+    </form>
+<?php
+
+if(isset($sshco)){
+    echo $sshco;
 }
 ?>
 <br>
