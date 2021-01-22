@@ -36,7 +36,9 @@ if (isset($_POST['emailnew']) && isset($_POST['passwordnew'])) {
 if (isset($_GET['prod'])) {
     $prod = $_GET['prod'];
 }
-
+if (isset($_GET['CARN'])) {
+    $CARN = $_GET['CARN'];
+}
 if (isset($_GET['sshco'])) {
     $sshco = $_GET['sshco'];
 }
@@ -86,7 +88,22 @@ switch ($action) {
         } else {
             $SSH = "pas ok";
         }
-        adminP($SSH, $sshco);
+        adminP($SSH, $sshco,$CARM);
+        break;
+    case 'CAR':
+echo "excution du script";
+        $script ="sh /script/create.sh $CARN";
+        $connection = ssh2_connect('10.229.42.213', 22);
+        ssh2_auth_password($connection, 'root', 'Pa$$w0rd');
+
+        $stream = ssh2_exec($connection, $script);
+        stream_set_blocking($stream, true);
+        $stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+        $output = stream_get_contents($stream_out);
+        $CARID = $output;
+        echo "fin de l'execution du script";
+        adminP($SSH, $sshco,$CARID);
+
         break;
     case "trylogin":
         trylogin($email, $password);
@@ -99,7 +116,7 @@ switch ($action) {
         login();
         break;
     case "adminP":
-        adminP($SSH, $sshco);
+        adminP($SSH, $sshco,$CARM);
         break;
     case "sub":
         sub();

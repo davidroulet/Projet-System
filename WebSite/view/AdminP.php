@@ -32,6 +32,18 @@ if(isset($sshco)){
     echo $sshco;
 }
 ?>
+    <form method="get">
+        <input type="hidden" name="action" value="CAR" >
+        <input type="text" name="CARN" value="" >
+        <button type="submit">Create and register</button>
+        <br>
+        VMID :  <?php
+
+        if(isset($CARID)){
+            echo $CARID;
+        }
+        ?>
+    </form>
 <br>
 Liste des Produits:
    <div class="col-6">
