@@ -5,6 +5,7 @@
  * Date: [DATE]
  */
 require_once 'model/model.php';
+
 function trylogin($email, $password)
 {
     $data = getuserbyemail($email);
@@ -27,8 +28,9 @@ function newuser($email, $password)
     trylogin($email, $password);
 }
 
-function adminP($SSH)
+function adminP($SSH,$sshco,$CARID)
 {
+
     $prods = getproduct();
     $users = getuser();
     require_once 'view/AdminP.php';
