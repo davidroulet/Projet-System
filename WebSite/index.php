@@ -76,7 +76,7 @@ switch ($action) {
         $stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
         $output = stream_get_contents($stream_out);
         $sshco = $output;
-        adminP($SSH, $sshco);
+        adminP($SSH, $sshco,$CARM);
 
 
         break;
